@@ -1,0 +1,14 @@
+import os
+from dotenv import load_dotenv
+
+load_dotenv()
+
+AWS_REGION = os.getenv("AWS_REGION")
+COGNITO_USER_POOL_ID = os.getenv("COGNITO_USER_POOL_ID")
+COGNITO_CLIENT_ID = os.getenv("COGNITO_CLIENT_ID")
+S3_BUCKET_NAME = os.getenv("S3_BUCKET_NAME")
+OPENSEARCH_ENDPOINT = os.getenv("OPENSEARCH_URL")
+DYNAMODB_TABLE_NAME = os.getenv("DYNAMODB_TABLE_NAME")
+DYNAMODB_METRICS_TABLE = os.getenv("DYNAMODB_METRICS_TABLE")
+TAVILY_API_KEY = os.getenv("TAVILY_API_KEY")
+WEATHER_API_KEY = os.getenv("WEATHER_API_KEY")
