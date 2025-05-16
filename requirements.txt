@@ -11,3 +11,4 @@ aws-cdk-lib>=2.70.0
 constructs>=10.1.233
 sentence-transformers>=2.2.2
 python-dotenv>=1.0.0
+requests-aws4auth

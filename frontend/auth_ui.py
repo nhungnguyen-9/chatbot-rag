@@ -9,10 +9,10 @@ def show_login_ui():
 
     if st.button("Login", key="login_button"):
         try:
-            access_token = auth.authenticate_user(username, password)
-            user_info = auth.get_user_info(access_token)
-            st.session_state["access_token"] = access_token
-            st.session_state["user_id"] = user_info["Username"]
+            result = auth.authenticate_user(username, password)
+            st.session_state["access_token"] = result["id_token"] 
+            st.session_state["credentials"] = result["credentials"]  # Lưu credentials
+            st.session_state["user_id"] = username  # Sử dụng username làm user_id
             st.success("Logged in successfully!")
             st.rerun()
         except Exception as e:
@@ -20,6 +20,7 @@ def show_login_ui():
 
     if st.button("Logout", key="logout_button") and "access_token" in st.session_state:
         del st.session_state["access_token"]
+        del st.session_state["credentials"]
         del st.session_state["user_id"]
         st.success("Logged out successfully!")
         st.rerun()
